@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>CMD documentation</title>
+</head>
+<body>
+<script>
+commands = /^[A-Z]{2,}/mg;
+fetch("https://cmddoc.ndev.tk/Summary").then(resp => resp.text().then(data =>{
+list = data.match(commands);
+list.forEach(function(command) {
+  data = data.replace(command, command.link(command));
+});
+document.body.innerHTML += data;
+}));
+</script>
+</body>
+</html>
