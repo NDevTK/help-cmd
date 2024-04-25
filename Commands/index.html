@@ -11,7 +11,7 @@ list = data.match(commands);
 list.forEach(function(command) {
   data = data.replace(command, command.link(command));
 });
-document.body.innerHTML += data;
+document.body.innerText += data;
 }));
 </script>
 </body>
